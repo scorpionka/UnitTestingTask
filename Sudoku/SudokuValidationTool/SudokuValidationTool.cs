@@ -43,24 +43,9 @@ namespace Sudoku.SudokuValidationTool
 
         private bool IsValidSudoku()
         {
-            return RowsAreValid()
-                && ColumnsAreValid()
-                && SquaresAreValid();
-        }
-
-        private bool RowsAreValid()
-        {
-            return IsValid(GetNumberFromRow);
-        }
-
-        private bool ColumnsAreValid()
-        {
-            return IsValid(GetNumberFromColumn);
-        }
-
-        private bool SquaresAreValid()
-        {
-            return IsValid(GetNumberFromSquare);
+            return IsValid(GetNumberFromRow)
+                && IsValid(GetNumberFromColumn)
+                && IsValid(GetNumberFromSquare);
         }
 
         private static bool IsValid(Func<int, int, int> numberGetter)
