@@ -1,14 +1,14 @@
-﻿using System;
-
-namespace Sudoku
+﻿namespace Sudoku
 {
     public class SudokuTable
     {
-        public SudokuTable(int[,] sudokuTable)
+        private readonly int[,] table;
+
+        public SudokuTable(int[,] table)
         {
-            Table = sudokuTable ?? throw new ArgumentNullException(nameof(sudokuTable));
+            this.table = table;
         }
 
-        public int[,] Table { get; private set; }
+        public int[,] Table { get => table; }
     }
 }
