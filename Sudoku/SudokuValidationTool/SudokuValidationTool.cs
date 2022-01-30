@@ -23,7 +23,22 @@ namespace Sudoku.SudokuValidationTool
                 return false;
             }
 
+            if (CheckForWrongNumber(sudokuTable.Table))
+            {
+                return false;
+            }
+
             return true;
+        }
+
+        private static bool CheckForWrongNumber(int[,] table)
+        {
+            foreach (int i in table)
+            {
+                if (i < 1 || i > 9) { return true; }
+            }
+
+            return false;
         }
     }
 }
