@@ -2,6 +2,6 @@
 {
     public interface ISudokuValidationTool
     {
-        bool ValidateSolution(SudokuTable sudokuTable);
+        bool IsValidSolution(SudokuTable sudokuTable);
     }
 }

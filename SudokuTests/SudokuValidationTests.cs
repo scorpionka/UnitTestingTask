@@ -22,7 +22,7 @@ namespace SudokuTests
         {
             SudokuTable sudokuTable = new SudokuTable(null);
 
-            Assert.Throws<ArgumentNullException>(() => sudokuValidationTool.ValidateSolution(sudokuTable));
+            Assert.Throws<ArgumentNullException>(() => sudokuValidationTool.IsValidSolution(sudokuTable));
         }
 
         public static IEnumerable<TestCaseData> SudokuSizeTest()
@@ -36,7 +36,7 @@ namespace SudokuTests
         {
             SudokuTable sudokuTable = new SudokuTable(table);
 
-            Assert.IsFalse(sudokuValidationTool.ValidateSolution(sudokuTable));
+            Assert.IsFalse(sudokuValidationTool.IsValidSolution(sudokuTable));
         }
 
         public static IEnumerable<TestCaseData> SudokuZeroTest()
@@ -59,7 +59,7 @@ namespace SudokuTests
         {
             SudokuTable sudokuTable = new SudokuTable(table);
 
-            Assert.IsFalse(sudokuValidationTool.ValidateSolution(sudokuTable));
+            Assert.IsFalse(sudokuValidationTool.IsValidSolution(sudokuTable));
         }
 
         public static IEnumerable<TestCaseData> SudokuNegativeNumberTest()
@@ -82,7 +82,7 @@ namespace SudokuTests
         {
             SudokuTable sudokuTable = new SudokuTable(table);
 
-            Assert.IsFalse(sudokuValidationTool.ValidateSolution(sudokuTable));
+            Assert.IsFalse(sudokuValidationTool.IsValidSolution(sudokuTable));
         }
 
         public static IEnumerable<TestCaseData> SudokuWrongNumberTest()
@@ -105,7 +105,7 @@ namespace SudokuTests
         {
             SudokuTable sudokuTable = new SudokuTable(table);
 
-            Assert.IsFalse(sudokuValidationTool.ValidateSolution(sudokuTable));
+            Assert.IsFalse(sudokuValidationTool.IsValidSolution(sudokuTable));
         }
 
         public static IEnumerable<TestCaseData> SudokuIncorrectTableTest()
@@ -128,7 +128,7 @@ namespace SudokuTests
         {
             SudokuTable sudokuTable = new SudokuTable(table);
 
-            Assert.IsFalse(sudokuValidationTool.ValidateSolution(sudokuTable));
+            Assert.IsFalse(sudokuValidationTool.IsValidSolution(sudokuTable));
         }
 
         public static IEnumerable<TestCaseData> SudokuCorrectTableTest()
@@ -151,7 +151,7 @@ namespace SudokuTests
         {
             SudokuTable sudokuTable = new SudokuTable(table);
 
-            Assert.IsTrue(sudokuValidationTool.ValidateSolution(sudokuTable));
+            Assert.IsTrue(sudokuValidationTool.IsValidSolution(sudokuTable));
         }
     }
 }
