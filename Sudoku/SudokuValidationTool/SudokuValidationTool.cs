@@ -15,6 +15,14 @@ namespace Sudoku.SudokuValidationTool
 
             if (sudokuTable.Table == null) throw new ArgumentNullException(nameof(sudokuTable));
 
+            int rows = sudokuTable.Table.GetUpperBound(0) + 1;
+            int columns = sudokuTable.Table.Length / rows;
+
+            if (rows != 9 || columns != 9)
+            {
+                return false;
+            }
+
             return true;
         }
     }
