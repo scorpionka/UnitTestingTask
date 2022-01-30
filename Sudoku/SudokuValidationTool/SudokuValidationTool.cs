@@ -11,7 +11,11 @@ namespace Sudoku.SudokuValidationTool
     {
         public bool ValidateSolution(SudokuTable sudokuTable)
         {
-            throw new NotImplementedException();
+            if (sudokuTable == null) throw new ArgumentNullException(nameof(sudokuTable));
+
+            if (sudokuTable.Table == null) throw new ArgumentNullException(nameof(sudokuTable));
+
+            return true;
         }
     }
 }
