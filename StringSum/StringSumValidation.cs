@@ -4,19 +4,29 @@ namespace StringSum
 {
     internal static class StringSumValidation
     {
-        internal static void ValidateNumbers(string num1, string num2)
+        internal static void ValidateNumber(string num)
         {
-            if (num1 is null)
-                throw new ArgumentNullException(nameof(num1));
+            if (num is null)
+                throw new ArgumentNullException(nameof(num));
 
-            if (num2 is null)
-                throw new ArgumentNullException(nameof(num2));
+            if (string.IsNullOrWhiteSpace(num))
+                throw new ArgumentException($"{num} is empty string", nameof(num));
+        }
 
-            if (string.IsNullOrWhiteSpace(num1))
-                throw new ArgumentException("num1 is empty string", nameof(num1));
+        /// <summary>
+        /// Check if natural number.
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns>If natural, returns <param name="num"/>, else returns "0"</returns>
+        internal static string CheckIfNatural(string num)
+        {
+            foreach (char c in num)
+            {
+                if (!char.IsDigit(c))
+                    return "0";
+            }
 
-            if (string.IsNullOrWhiteSpace(num2))
-                throw new ArgumentException("num2 is empty string", nameof(num2));
+            return num;
         }
     }
 }
