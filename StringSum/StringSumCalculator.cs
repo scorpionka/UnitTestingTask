@@ -15,7 +15,16 @@ namespace StringSum
             num1 = StringSumValidation.CheckIfNatural(num1);
             num2 = StringSumValidation.CheckIfNatural(num2);
 
-            return (ConvertToNumber(num1) + ConvertToNumber(num2)).ToString();
+
+            ulong ulongNum1 = ConvertToNumber(num1);
+            ulong ulongNum2 = ConvertToNumber(num2);
+
+            if (ulong.MaxValue - ulongNum1 < ulongNum2)
+            {
+                throw new FormatException($"Numbers are too big");
+            }
+
+            return (ulongNum1 + ulongNum2).ToString();
         }
 
         private static ulong ConvertToNumber(string num)
