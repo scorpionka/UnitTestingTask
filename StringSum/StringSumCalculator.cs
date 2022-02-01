@@ -15,7 +15,19 @@ namespace StringSum
             num1 = StringSumValidation.CheckIfNatural(num1);
             num2 = StringSumValidation.CheckIfNatural(num2);
 
-            return num1 + num2;
+            return (ConvertToNumber(num1) + ConvertToNumber(num2)).ToString();
+        }
+
+        private static long ConvertToNumber(string num)
+        {
+            if (long.TryParse(num, out long numValue))
+            {
+                return numValue;
+            }
+            else
+            {
+                throw new FormatException($"long.TryParse could not parse '{num}' to an long.");
+            }
         }
     }
 }
