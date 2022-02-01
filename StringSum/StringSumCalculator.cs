@@ -18,9 +18,9 @@ namespace StringSum
             return (ConvertToNumber(num1) + ConvertToNumber(num2)).ToString();
         }
 
-        private static long ConvertToNumber(string num)
+        private static ulong ConvertToNumber(string num)
         {
-            if (long.TryParse(num, out long numValue))
+            if (ulong.TryParse(num, out ulong numValue))
             {
                 return numValue;
             }

@@ -37,5 +37,27 @@ namespace StringSumTests
         {
             Assert.AreEqual(expected, StringSumCalculator.Sum(num1, num2));
         }
+
+        [TestCase("123", "587", "710")]
+        [TestCase("3859425", "4796323", "8655748")]
+        [TestCase("1355964", "10244691", "11600655")]
+        public void NumbersAreNatural_ReturnsCorrectResult(string num1, string num2, string expected)
+        {
+            Assert.AreEqual(expected, StringSumCalculator.Sum(num1, num2));
+        }
+
+        [TestCase("1355964", "10244691", "5")]
+        public void NumbersAreNatural_ReturnsIncorrectResult(string num1, string num2, string expected)
+        {
+            Assert.AreNotEqual(expected, StringSumCalculator.Sum(num1, num2));
+        }
+
+        [Test]
+        public void NumbersAreTooBig_ThrowsFormatException()
+        {
+            Assert.Throws<FormatException>(() => StringSumCalculator.Sum("18446744073709551616", "1"));
+            Assert.Throws<FormatException>(() => StringSumCalculator.Sum("5", "18446744073709551619"));
+            Assert.Throws<FormatException>(() => StringSumCalculator.Sum("9223372036854775811", "9223372036854775900"));
+        }
     }
 }
