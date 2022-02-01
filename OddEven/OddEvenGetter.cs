@@ -8,6 +8,16 @@ namespace OddEven
     {
         public static IEnumerable<string> GetOddEvenNumSequence(int lastNumber)
         {
+            if (lastNumber < 1)
+            {
+                throw new ArgumentException("Parameter must be greater than 0", nameof(lastNumber));
+            }
+
+            return GetSequence(lastNumber);
+        }
+
+        private static IEnumerable<string> GetSequence(int lastNumber)
+        {
             foreach (int num in Enumerable.Range(1, lastNumber))
             {
                 if (IsPrime(num))
